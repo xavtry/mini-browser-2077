@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MINI BROWSER 2077</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
 
+  <!-- 3D NEON CITY BACKGROUND -->
+  <canvas id="bg"></canvas>
+
+  <!-- LOADING SCREEN -->
+  <div id="boot">
+    <div class="logo">2077</div>
+    <div class="scanline"></div>
+    <div class="text">NEURAL INTERFACE BOOTING...<br><span id="bootmsg">INITIALIZING PROXY LINK</span></div>
+  </div>
+
+  <!-- MAIN BROWSER -->
+  <div id="ui" class="hidden">
+    <div class="toolbar">
+      <div class="nav">
+        <button id="back" title="Back">BACK</button>
+        <button id="forward" title="Forward">FORWARD</button>
+        <button id="reload" title="Reload">RELOAD</button>
+        <button id="fullscreen" title="Fullscreen">FULLSCREEN</button>
+      </div>
+
+      <div class="address-bar">
+        <input type="text" id="url" placeholder="https://target.system" autocomplete="off" />
+        <button id="go">GO</button>
+      </div>
+
+      <div class="status" id="status">READY</div>
+    </div>
+    </div>
+
+    <div id="frame-container">
+      <iframe id="frame" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-modals"></iframe>
+      <div id="error" class="hidden">
+        <img src="assets/images/error-holo.png" alt="ERROR">
+        <h2>CONNECTION TERMINATED</h2>
+        <p id="error-msg">Unknown host or network failure.</p>
+        <button onclick="location.reload()">RECONNECT</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIO -->
+  -->
+  <audio id="snd-click" src="assets/sounds/click.mp3"></audio>
+  <audio id="snd-load" src="assets/sounds/load.mp3"></audio>
+  <audio id="snd-error" src="assets/sounds/error.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
