@@ -1,1 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
 
+* { margin:0; padding:0; box-sizing:border-box; }
+body, html { height:100%; overflow:hidden; background:#000; font-family:'Orbitron',sans-serif; }
+
+#bg { position:fixed; inset:0; z-index:1; }
+
+#boot {
+  position:fixed; inset:0; z-index:9999; background:#000;
+  color:#0ff; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; font-size:1.8rem; text-shadow:0 0 20px #0ff;
+}
+.logo { font-size:7rem; font-weight:900; color:#f0f; text-shadow:0 0 40px #f0f; animation:pulse 2s infinite; }
+.scanline { width:600px; height:4px; background:#0ff; box-shadow:0 0 30px #0ff; margin:30px 0;
+  animation:scan 3s linear infinite; }
+@keyframes scan { from{transform:translateX(-100%)} to{transform:translateX(100%)} }
+@keyframes pulse { 0%,100%{opacity:0.8} 50%{opacity:1} }
+
+.hidden { display:none !important; }
+
+#ui {
+  position:fixed; inset:0; z-index:10; display:flex; flex-direction:column;
+  backdrop-filter: blur(10px);
+}
+
+.toolbar {
+  background:rgba(10,0,40,0.6);
+  border-bottom:3px solid #0ff;
+  padding:12px 16px;
+  display:flex; align-items:center; gap:16px;
+  flex-wrap:wrap;
+  box-shadow:0 0 40px rgba(0,255,255,0.6);
+  z-index:100;
+}
+
+button {
+  background:transparent;
+  border:2px solid #0ff;
+  color:#0ff;
+  padding:10px 18px;
+  font:inherit; font-weight:700;
+  cursor:pointer;
+  text-shadow:0 0 15px #0ff;
+  box-shadow:0 0 20px rgba(0,255,255,0.5);
+  transition:all 0.3s;
+}
+button:hover {
+  background:#0ff; color:#000;
+  box-shadow:0 0 40px #0ff, inset 0 0 20px #000;
+  transform:scale(1.05);
+}
+
+.address-bar {
+  flex:1; display:flex; min-width:300px;
+  background:rgba(0,255,255,0.1);
+  border:2px solid #0ff;
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:0 0 30px rgba(0,255,255,0.7);
+}
+#url {
+  flex:1; background:transparent; border:none; color:#0ff; padding:12px;
+  font:inherit; outline:none;
+}
+#go {
+  background:linear-gradient(45deg,#f0f,#0ff);
+  color:#000; border:none; padding:0 32px;
+}
+#go:hover { filter:brightness(1.4); }
+
+.status {
+  color:#f0f; font-size:0.9rem; text-shadow:0 0 10px #f0f;
+  animation:flicker 4s infinite;
+}
+@keyframes flicker { 0%,100%{opacity:1} 50%{opacity:0.6} }
+
+#frame-container {
+  flex:1; position:relative; background:#000;
+  border:3px solid #0ff; border-top:none;
+  box-shadow:inset 0 0 60px rgba(0,255,255,0.3);
+}
+#frame { width:100%; height:100%; border:none; }
+
+#error {
+  position:absolute; inset:0; background:rgba(0,0,0,0.9);
+  color:#f00; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; font-size:2rem;
+}
+#error img { width:200px; opacity:0.8; }
